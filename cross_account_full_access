@@ -1,0 +1,39 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<AccountId-A>:root"
+      },
+      "Action": "s3:*",
+      "Resource": ["arn:aws:s3:::<MyBucketName>",
+                   "arn:aws:s3:::<MyBucketName>/*"]
+    },
+    {
+      "Effect":"Allow",
+      "Principal": {
+        "AWS": ["arn:aws:iam::<AccountId-B>:root",
+                "arn:aws:iam::<AccountId-C>:root"]
+      },	   
+      "Action":[
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+        ],
+      "Resource": "arn:aws:s3:::<MyBucketName>"
+    },	
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": ["arn:aws:iam::<AccountId-B>:root",
+                "arn:aws:iam::<AccountId-C>:root"]
+      },
+      "Action": [
+		"s3:GetObject",
+		"s3:GetObjectVersion"
+	    ],
+      "Resource": ["arn:aws:s3:::<MyBucketName>",
+                   "arn:aws:s3:::<MyBucketName>/*"]
+    }	
+  ]
+}
