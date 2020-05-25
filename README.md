@@ -1,2 +1,2 @@
 # S3_UseCases
-This Repo will host use cases related to S3 bucket, bucket policies and IAM permissions 
+Common S3 bucket, bucket policies and IAM permissions use cases used in different Cloud implementations
